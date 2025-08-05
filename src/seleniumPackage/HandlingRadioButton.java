@@ -12,8 +12,16 @@ public class HandlingRadioButton {
 		driver.get("https://www.facebook.com/");
 	
 		driver.manage().window().maximize();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//a[@data-testid= 'open-registration-form-button']")).click();
+		Thread.sleep(4000);
+//		driver.findElement(By.xpath("//a[@data-testid= 'open-registration-form-button']")).click();
+//		driver.findElement(By.xpath("//a[@class= '_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")).click();
+		driver.findElement(By.xpath("//a[@href= '/r.php?entry_point=login']")).click();
+//		driver.findElement(By.xpath("//a[@id= 'u_0_0_bK']")).click(); //XXXXXXX
+		// in some sites like facebook, ID is generated again by reloading the page , dynamic ID
+		
+//		<a role="button" class="_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy" href="/r.php?entry_point=login" 
+//				ajaxify="" id="u_0_0_bK" data-testid="open-registration-form-button">Create new account</a>
+		
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@value= '1']")).click();
 		Thread.sleep(2000);

@@ -42,7 +42,7 @@ public class FBCreatNewAccount {
 		driver.findElement(By.xpath("//input[@name=\"reg_email__\"]")).sendKeys("bahareh@gmail.com");
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//input[@type=\"password\"]")).sendKeys("123456789");
+		driver.findElement(By.xpath("//input[@type=\"password\"]")).sendKeys("12BB345#6789");
 		Thread.sleep(1000);
 		
 		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
