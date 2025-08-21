@@ -1,7 +1,7 @@
 package seleniumPackage;
 
+import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +13,8 @@ public class HandelingDynamicWebTable {
 		System.setProperty("webdriver.chrome.driver", "D:\\213\\0 Real world Real job!\\Matherial for QA\\Java Selenium\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		//here instead of Thread.sleep(); we will have ***implicit wait***
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+//		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 				
 		driver.get("https://money.rediff.com/quotes/all/gainersgainers");
 		driver.findElement(By.xpath("//a[contains(text(),'Gainers')]")).click();
