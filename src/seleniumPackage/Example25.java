@@ -1,7 +1,9 @@
 package seleniumPackage;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Example25 {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 		
@@ -21,6 +23,8 @@ public class Example25 {
 		WebDriver driver = new ChromeDriver(options);
 		driver.get("https://www.hdfcbank.com/");
 		driver.manage().window().maximize();
+		
+		//String originalWindow = driver.getWindowHandle();
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement rejectAllButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id=\"onetrust-reject-all-handler\"]")));
@@ -33,6 +37,19 @@ public class Example25 {
 
 		List<WebElement> dropDownOptions = driver.findElements(By.xpath("//div[@class=\"login_link\"]"));
 		dropDownOptions.get(0).click();
+		
+		Set<String> s = driver.getWindowHandles();
+		Iterator<String> i = s.iterator();
+		String parent = i.next();
+		String child = i.next();
+		
+		driver.switchTo().window(child);
+		
+		Thread.sleep(2000);
+		
+		WebElement userNumber = driver.findElement(By.xpath("//input[@class = \"form-control text-muted\"]"));
+		userNumber.sendKeys("1234567");
+		
 		
 //		Thread.sleep(2000);
 //		driver.quit();
