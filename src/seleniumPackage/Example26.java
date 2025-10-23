@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class Example26 {
 	public static void main(String[] args) throws InterruptedException {
@@ -19,7 +20,10 @@ public class Example26 {
 		
 		WebElement userNumber = driver.findElement(By.xpath("//input[@class = \"form-control text-muted\"]"));
 		userNumber.sendKeys("1234567");
+		Assert.assertEquals(userNumber.getAttribute("value"),"1234567", "ID id not typed corectly");
 		
+		WebElement continueButton = driver.findElement(By.xpath("//a[@class='btn btn-primary login-btn']"));
+		continueButton.click();
 		
 
 }}
